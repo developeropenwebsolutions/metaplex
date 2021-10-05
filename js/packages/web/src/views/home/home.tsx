@@ -1,15 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const IndexView = () => {
   return (
     <div>
-        <input
-            className="fr-form-control"
-            type="text"
-            name="your realm"
-            id="realm"
-            placeholder="Find your kin. Enter the realm."
-        />
+        <Link to={`#`} className="enter-realm-btn">Find your kin. Enter the realm.</Link>
         <button className="fr-form-btn" type="submit">Watch cinematic</button>
     </div>
   );

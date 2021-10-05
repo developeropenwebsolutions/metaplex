@@ -70,9 +70,9 @@ export const AppLayout = React.memo((props: any) => {
          <header className="page-header">
             <nav className="top-navbar">
                <div className="nav-logo-wrapper">
-                  <a href="#">
+                  <Link to={`/`}>
                      <img className="site-logo" src={assetPrefix + "assets/images/five-realms-logo.png"} alt="" />
-                  </a>
+                  </Link>
                </div>
                <div className="nav-menu-wrapper">
                   <ul className="nav-menu">
@@ -83,7 +83,7 @@ export const AppLayout = React.memo((props: any) => {
                         <span className="nav-overlay one"></span>
                      </li>
                      <li className="nav-item">
-                        <Link to={`#`} className="nav-link">
+                        <Link to={`/about`} className="nav-link">
                           About
                         </Link>
                         <span className="nav-overlay two"></span>
@@ -99,11 +99,11 @@ export const AppLayout = React.memo((props: any) => {
                   </ul>
                </div>
                <div className="social-links-wrapper">
-                    <Link to={`#`} className="social-link">
+                    <Link to={`#`} className="social-link twitter">
                      <img className="sl-img-back" src={assetPrefix + "assets/images/Twitter.png"} alt="" />
-                     <img className="sl-img-front alt" src={assetPrefix + "assets/images/twitter-hover.png"} alt="" />
+                     <img className="sl-img-front" src={assetPrefix + "assets/images/twitter-hover.png"} alt="" />
                      </Link>
-                     <Link to={`#`} className="social-link">
+                     <Link to={`#`} className="social-link discord">
                      <img className="sl-img-back" src={assetPrefix + "assets/images/DISCORD.png"} alt="" />
                      <img className="sl-img-front" src={assetPrefix + "assets/images/Discord-hover.png"} alt="" />
                      </Link>
@@ -115,11 +115,11 @@ export const AppLayout = React.memo((props: any) => {
                {connected ? (
                     <div className="app-right app-bar-box">
                     {/* <UserActions /> */}
-                    <CurrentUserBadge
+                    {/* <CurrentUserBadge
                         showBalance={false}
                         showAddress={false}
                         iconSize={24}
-                    />
+                    /> */}
                     </div>
                 ) : (
                <WalletButton className="connect-wallet-btn" allowWalletChange>Connect wallet</WalletButton>

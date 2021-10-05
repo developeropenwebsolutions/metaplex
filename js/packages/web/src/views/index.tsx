@@ -1,5 +1,7 @@
 export { HomeView } from './home';
 export { IndexView } from './home/home';
+export { FaqView } from './faq';
+export { AboutView } from './about';
 export { ArtView } from './art';
 export { ArtCreateView } from './artCreate';
 export { ArtistView } from './artist';

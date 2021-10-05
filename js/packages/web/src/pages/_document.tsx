@@ -39,15 +39,15 @@ export default class MetaplexDocument extends Document {
             sizes="16x16"
             href="/favicon-16x16.png"
           />
-          <meta name="theme-color" content="#000000" />
+          {/* <meta name="theme-color" content="#000000" /> */}
           <meta name="description" content="Metaplex NFT Marketplace" />
           <link rel="manifest" href="/manifest.json" />
-          <link
+          {/* <link
             rel="stylesheet"
             href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
             integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
             crossOrigin="anonymous"
-          />
+          /> */}
         </Head>
         <body>
           <Main />
