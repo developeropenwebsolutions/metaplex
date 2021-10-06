@@ -11,19 +11,20 @@ export const MintView = () => {
          <Header />
          <main className="page-contents">
            <section className="mint-contents">
-           {connected ? (
-               <div className="mint-btn-wrapper">
-               
-                   <Link to={`/art/create`}>
+             <div className="mint-btn-wrapper">
+              {connected ? (
+                <>
+                  <Link to={`/art/create`}>
                         <button className="mint-btn">MINT</button>
                     </Link>
                   
                   <img src={assetPrefix + "assets/images/mint-frame.png"} alt="" className="mint-btn-overlay" />
                   <img src={assetPrefix + "assets/images/mint-frame-overlay.png"} alt="" className="mint-btn-overlay-front" />
-               </div>
-               ) : null}
-               <h3 className="sub-title">1 sol</h3>
-               <h3 className="mint-score">Minted 0/5000</h3>
+                </>
+                ) : null}
+              </div>
+              <h3 className="sub-title">1 sol</h3>
+              <h3 className="mint-score">Minted 0/5000</h3>
             </section>
         </main>
         </div>

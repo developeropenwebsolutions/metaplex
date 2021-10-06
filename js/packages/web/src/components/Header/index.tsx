@@ -47,61 +47,63 @@ export const Header = () => {
     const { connected } = useWallet();
   return (
     <header className="page-header">
-            <nav className="top-navbar">
-               <div className="nav-logo-wrapper">
-                  <Link to={`/`}>
-                     <img className="site-logo" src={assetPrefix + "assets/images/five-realms-logo.png"} alt="" />
+      <nav className="top-navbar">
+          <div className="nav-logo-wrapper">
+            <Link to={`/`}>
+                <img className="site-logo" src={assetPrefix + "assets/images/five-realms-logo.png"} alt="" />
+            </Link>
+          </div>
+          <div className="nav-menu-wrapper">
+            <ul className="nav-menu">
+                <li className="nav-item">
+                  <Link to={`/`} className="nav-link">
+                    Home
                   </Link>
-               </div>
-               <div className="nav-menu-wrapper">
-                  <ul className="nav-menu">
-                     <li className="nav-item">
-                        <Link to={`/`} className="nav-link">
-                          Home
-                        </Link>
-                        <span className="nav-overlay one"></span>
-                     </li>
-                     <li className="nav-item">
-                        <Link to={`/about`} className="nav-link">
-                          About
-                        </Link>
-                        <span className="nav-overlay two"></span>
-                     </li>
-                     <li className="nav-item">
-                        <Link to={`/mint`} className="nav-link">
-                          Mint
-                        </Link>
-                        <span className="nav-overlay three"></span>
-                     </li>
-                  </ul>
-               </div>
-               <div className="social-links-wrapper">
-                    <Link to={`#`} className="social-link twitter">
-                     <img className="sl-img-back" src={assetPrefix + "assets/images/Twitter.png"} alt="" />
-                     <img className="sl-img-front" src={assetPrefix + "assets/images/twitter-hover.png"} alt="" />
-                     </Link>
-                     <Link to={`#`} className="social-link discord">
-                     <img className="sl-img-back" src={assetPrefix + "assets/images/DISCORD.png"} alt="" />
-                     <img className="sl-img-front" src={assetPrefix + "assets/images/Discord-hover.png"} alt="" />
-                     </Link>
-                    <Link to={`#`} className="social-link">
-                     <img className="sl-img-back" src={assetPrefix + "assets/images/Solsea.png"} alt="" />
-                     <img className="sl-img-front" src={assetPrefix + "assets/images/Solsea-hover.png"} alt="" />
-                     </Link>
-               </div>
-               {connected ? (
-                    <div className="app-right app-bar-box">
-                    <UserActions />
-                    <CurrentUserBadge
-                        showBalance={false}
-                        showAddress={false}
-                        iconSize={24}
-                    />
-                    </div>
-                ) : (
-               <WalletButton className="connect-wallet-btn" allowWalletChange>Connect wallet</WalletButton>
-               )}
-            </nav>
-         </header>
+                  <span className="nav-overlay one"></span>
+                </li>
+                <li className="nav-item">
+                  <Link to={`/about`} className="nav-link">
+                    About
+                  </Link>
+                  <span className="nav-overlay two"></span>
+                </li>
+                <li className="nav-item">
+                  <Link to={`/mint`} className="nav-link">
+                    Mint
+                  </Link>
+                  <span className="nav-overlay three"></span>
+                </li>
+            </ul>
+          </div>
+          <div className="social-links-wrapper">
+              <Link to={`#`} className="social-link twitter">
+                <img className="sl-img-back" src={assetPrefix + "assets/images/Twitter.png"} alt="" />
+                <img className="sl-img-front" src={assetPrefix + "assets/images/twitter-hover.png"} alt="" />
+                </Link>
+                <Link to={`#`} className="social-link discord">
+                <img className="sl-img-back" src={assetPrefix + "assets/images/DISCORD.png"} alt="" />
+                <img className="sl-img-front" src={assetPrefix + "assets/images/Discord-hover.png"} alt="" />
+                </Link>
+              <Link to={`#`} className="social-link">
+                <img className="sl-img-back" src={assetPrefix + "assets/images/Solsea.png"} alt="" />
+                <img className="sl-img-front" src={assetPrefix + "assets/images/Solsea-hover.png"} alt="" />
+                </Link>
+          </div>
+          <div className="wallet-button-wrapper">
+          {connected ? (
+              <div className="app-right app-bar-box">
+              <UserActions />
+              <CurrentUserBadge
+                  showBalance={false}
+                  showAddress={false}
+                  iconSize={24}
+              />
+              </div>
+          ) : (
+          <WalletButton className="connect-wallet-btn" allowWalletChange>Connect wallet</WalletButton>
+          )}
+          </div>
+      </nav>
+    </header>
   );
 };
