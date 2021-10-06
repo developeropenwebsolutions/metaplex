@@ -1,5 +1,6 @@
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import { Providers } from './providers';
+import { PageTransition } from '@steveeeie/react-page-transition';
 import {
   AnalyticsView,
   ArtCreateView,
@@ -13,6 +14,8 @@ import {
   IndexView,
   FaqView,
   AboutView,
+  MintView,
+  ElementView,
 } from './views';
 import { AdminView } from './views/admin';
 import { BillingView } from './views/auction/billing';
@@ -22,6 +25,13 @@ export function Routes() {
     <>
       <HashRouter basename={'/'}>
         <Providers>
+        <Route
+        render={({ location }) => {
+          return (
+            <PageTransition
+              preset="moveToLeftFromRight"
+              transitionKey={location.pathname}
+            >
           <Switch>
             <Route exact path="/admin" component={() => <AdminView />} />
             <Route
@@ -59,8 +69,14 @@ export function Routes() {
             />
             <Route exact path="/faq" component={() => <FaqView />} />
             <Route exact path="/about" component={() => <AboutView />} />
+            <Route exact path="/mint" component={() => <MintView />} />
+            <Route exact path="/element" component={() => <ElementView />} />
             <Route path="/" component={() => <IndexView />} />
           </Switch>
+          </PageTransition>
+          );
+        }}
+      />
         </Providers>
       </HashRouter>
     </>

@@ -42,12 +42,22 @@ const UserActions = () => {
     );
   };
 
-export const FaqView = () => {
+export const MintView = () => {
   const assetPrefix = process.env.ASSET_PREFIX || '';
+  const { width } = useWindowDimensions();
   const { connected } = useWallet();
+  const { publicKey } = useWallet();
+  const { whitelistedCreatorsByCreator, store } = useMeta();
+    const pubkey = publicKey?.toBase58() || '';
+  
+    const canCreate = useMemo(() => {
+      return (
+        store?.info?.public ||
+        whitelistedCreatorsByCreator[pubkey]?.info?.activated
+      );
+    }, [pubkey, whitelistedCreatorsByCreator, store]);
   return (
-      <div className="page-wrapper faq-page">
-         <img src={assetPrefix + "assets/images/dark-background-blue-tint.png"} alt="" className="page-background" />
+      <div className="page-wrapper mint-page">
          <header className="page-header">
             <nav className="top-navbar">
                <div className="nav-logo-wrapper">
@@ -92,63 +102,29 @@ export const FaqView = () => {
                      </Link>
                </div>
                {connected ? (
-                    <div className="app-right app-bar-box">
-                    <UserActions />
-                    <CurrentUserBadge
-                        showBalance={false}
-                        showAddress={false}
-                        iconSize={24}
-                    />
-                    </div>
+                    null
                 ) : (
                <WalletButton className="connect-wallet-btn" allowWalletChange>Connect wallet</WalletButton>
                )}
             </nav>
          </header>
          <main className="page-contents">
-    <section className="faq-contents">
-        <p className="faq-question">How do I participate in the presale ?</p>
-        <p className="faq-answer">
-            Join Discord. Follow on Twitter, Share. Community support loudly echoes the heartbeat of Five Realms.
-            In light of that, 1,500 members of the discord army, shall be granted access to the presale. 1:1
-            Ratio. No shilling. You deserve more.
-        </p>
-
-        <p className="faq-question">How do I participate in the public sale ?</p>
-        <p className="faq-answer">
-            Head to the ‘Mint’ page. Connect your Wallet. Keep your trigger finger ready for launch when public
-            sale is live.
-        </p>
-
-        <p className="faq-question">Which wallet can I use ?</p>
-        <p className="faq-answer">We support Phantom Wallet.</p>
-
-        <p className="faq-question">Is there a resale market ?</p>
-        <p className="faq-answer">SolSea, Digitalise and SolanArt</p>
-
-        <p className="faq-question">What’re some incentives for the community ?</p>
-        <div className="faq-answer-list-wrapper pos-relative">
-            <ul className="faq-answer-list">
-                <li className="list-item">
-                PreSale: 30 % Minted – 10 Airdrops to randomly selected addresses that participated in the
-                presale
-                </li>
-                <li className="list-item">HUGE giveaways to members of our discord and twitter community</li>
-                <li className="list-item">50% Minted - 50 SOL added to community wallet.</li>
-                <li className="list-item">75% Minted - 75 SOL added to community wallet</li>
-                <li className="list-item">5% Royalties pooled back to community wallet each month.</li>
-                <li className="list-item">Limited edition Comic Book for the legion</li>
-                <li className="list-item">Exclusive Merch for the Five Realms army</li>
-                <li className="list-item">
-                SECOND COLLECTION: Prepare for battle, and climb through the ranks with the greatest sequel of
-                all time.
-                </li>
-                <li className="list-item">NFT GAME: <br />Enter the realm, and bring order to the metaverse</li>
-            </ul>
-            <img src={assetPrefix + "assets/images/faq-img.png"} alt="" className="faq-img" />
+           <section className="mint-contents">
+           {connected ? (
+               <div className="mint-btn-wrapper">
+               
+                   <Link to={`/art/create`}>
+                        <button className="mint-btn">MINT</button>
+                    </Link>
+                  
+                  <img src={assetPrefix + "assets/images/mint-frame.png"} alt="" className="mint-btn-overlay" />
+                  <img src={assetPrefix + "assets/images/mint-frame-overlay.png"} alt="" className="mint-btn-overlay-front" />
+               </div>
+               ) : null}
+               <h3 className="sub-title">1 sol</h3>
+               <h3 className="mint-score">Minted 0/5000</h3>
+            </section>
+        </main>
         </div>
-    </section>
-    </main>
-      </div>
   );
 };
