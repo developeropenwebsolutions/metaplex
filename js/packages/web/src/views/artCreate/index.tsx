@@ -42,6 +42,7 @@ import { cleanName, getLast } from '../../utils/utils';
 import { AmountLabel } from '../../components/AmountLabel';
 import useWindowDimensions from '../../utils/layout';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
+import { Header } from '../../components/Header';
 
 const { Step } = Steps;
 const { Dragger } = Upload;
@@ -126,7 +127,9 @@ export const ArtCreateView = () => {
   };
 
   return (
-    <>
+    <div className="page-wrapper faq-page">
+         <Header />
+         <main className="page-contents">
       <Row style={{ paddingTop: 50 }}>
         {stepsVisible && (
           <Col span={24} md={4}>
@@ -214,7 +217,8 @@ export const ArtCreateView = () => {
       <MetaplexOverlay visible={step === 6}>
         <Congrats nft={nft} />
       </MetaplexOverlay>
-    </>
+      </main>
+      </div>
   );
 };
 
@@ -295,7 +299,7 @@ const CategoryStep = (props: {
           </Row>
         </Col>
       </Row>
-    </>
+      </>
   );
 };
 
@@ -504,7 +508,7 @@ const UploadStep = (props: {
           Continue to Mint
         </Button>
       </Row>
-    </>
+      </>
   );
 };
 
@@ -743,7 +747,7 @@ const InfoStep = (props: {
           Continue to royalties
         </Button>
       </Row>
-    </>
+      </>
   );
 };
 
@@ -754,6 +758,7 @@ const RoyaltiesSplitter = (props: {
   isShowErrors?: boolean;
 }) => {
   return (
+    <>
     <Col>
       <Row gutter={[0, 24]}>
         {props.creators.map((creator, idx) => {
@@ -815,6 +820,7 @@ const RoyaltiesSplitter = (props: {
         })}
       </Row>
     </Col>
+    </>
   );
 };
 
@@ -1005,7 +1011,7 @@ const RoyaltiesStep = (props: {
           Continue to review
         </Button>
       </Row>
-    </>
+      </>
   );
 };
 
@@ -1105,7 +1111,7 @@ const LaunchStep = (props: {
           Pay with Credit Card
         </Button>
       </Row>
-    </>
+      </>
   );
 };
 
@@ -1123,6 +1129,7 @@ const WaitingStep = (props: {
   }, []);
 
   return (
+    <>
     <div
       style={{
         marginTop: 70,
@@ -1137,6 +1144,7 @@ const WaitingStep = (props: {
       </div>
       <div className="waiting-subtitle">This can take up to 1 minute.</div>
     </div>
+    </>
   );
 };
 
@@ -1190,6 +1198,6 @@ const Congrats = (props: {
         </Button>
       </div>
       <Confetti />
-    </>
+      </>
   );
 };
