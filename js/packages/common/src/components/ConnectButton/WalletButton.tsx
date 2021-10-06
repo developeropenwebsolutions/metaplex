@@ -26,7 +26,10 @@ export const WalletButton = (props: any) => {
 
   if (!wallet || !allowWalletChange) {
     return (
-      <a href="javascript:" {...rest} onClick={handleClick} disabled={connected && disabled}> {connected ? props.children : 'Connect Wallet'} </a>
+      <a href="javascript:" {...rest} onClick={handleClick} disabled={connected && disabled}> 
+        {connected ? props.children : 'Connect Wallet'} 
+        <span className="connect-wallet-text-overlay">Connect wallet</span>
+      </a>
     );
   }
 

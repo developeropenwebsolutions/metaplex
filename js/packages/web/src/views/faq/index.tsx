@@ -91,6 +91,7 @@ export const FaqView = () => {
                      <img className="sl-img-front" src={assetPrefix + "assets/images/Solsea-hover.png"} alt="" />
                      </Link>
                </div>
+               <div className="wallet-button-wrapper">
                {connected ? (
                     <div className="app-right app-bar-box">
                     <UserActions />
@@ -103,6 +104,7 @@ export const FaqView = () => {
                 ) : (
                <WalletButton className="connect-wallet-btn" allowWalletChange>Connect wallet</WalletButton>
                )}
+               </div>
             </nav>
          </header>
          <main className="page-contents">
